@@ -1,0 +1,85 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f8f4f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border: 2px solid #e0d2b3;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+    color: #a47f40;
+    margin-bottom: 20px;
+    font-family: 'Garamond', serif;
+}
+
+.photo-frame {
+    border: 3px solid #e0d2b3;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+p {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.rsvp-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #a47f40;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rsvp-button:hover {
+    background-color: #8c6b34;
+}

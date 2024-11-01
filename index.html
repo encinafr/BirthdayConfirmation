@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de cumpleaños</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Include EmailJS SDK -->
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>    <script type="text/javascript">
+        // Initialize EmailJS with your User ID (replace 'YOUR_USER_ID' with the actual User ID from EmailJS)
+        (function() {
+            emailjs.init('US7maW3HFZPXEyzk4');
+        })();
+
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            const name = document.getElementById('guest-name').value;
+
+            // EmailJS parameters
+            const templateParams = {
+                guest_name: name,
+                message: `Hola, mi nombre es ${name} y me gustaría confirmar mi asistencia!`,
+                to_email: 'Claucarrasco214@gmail.com', // Replace with your email or keep dynamic
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_0hzb2pl', 'template_y44sddv', templateParams)
+                .then(function(response) {
+                    alert('¡Email enviado con éxito! Gracias por confirmar.');
+                    document.getElementById('rsvp-form').reset(); // Clear the form
+                }, function(error) {
+                    alert('Error al enviar el email. Inténtalo de nuevo.');
+                    console.log('FAILED...', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🎈 ¡Estás invitado a mi fiesta de cumpleaños! 🎈</h1>
+            <div class="photo-frame">
+                <img src="mili-photo.jpg" alt="Mili's Photo">
+            </div>
+
+            <p>El 23 de noviembre estaré celebrando mi cumpleaños y me encantaría contar con tu presencia.</p>
+            
+            <div style="text-align: center;">
+                <p><strong>Hora:</strong> 21hs</p>
+                <p><strong>Lugar:</strong> Luna Azul Eventos</p>
+            </div>
+
+            <p>Por favor, confirma si podes venir antes del 10/11/2024. ¡Espero verte!</p>
+
+            <!-- RSVP Form -->
+            <form id="rsvp-form" onsubmit="sendEmail(event)">
+                <input type="text" id="guest-name" placeholder="Tu nombre" required>
+                <button type="submit" class="rsvp-button">Confirmar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
